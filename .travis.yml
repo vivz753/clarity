@@ -1,44 +1,44 @@
 language: node_js
 node_js:
-  - "8"
+- '8'
 env:
   global:
-    - CXX=g++-4.8
+  # - CXX=g++-4.8
+  # - secure: l2h1EsfWYFR070BoYaHkDSKeCJv8v2i+JcYpHdrJQBfOFvb659VJV2HD++s8N5OTYiZCIQ18o8aNqF5ukUxVxe7fEVRNcymHVwdzBH8deXj0D21/D/g0DI0aSFm6JD1DNzxjBuc42t/e99wYou3m9qz+/C6hdKxnti+MzTciP4Oa+7xCQXnTdOdKO4C11t+CrVl9ANLauKAi1JGNgV7Xaq9+FMp+O+1clKhBl2f3VuZN84cZbyLZUQHRoCtEj3esc7cBACgazEnfftrtODBRaTLIawn1I6k0D4DFmOsSvx98hD6XL+O3CZBHhmTkZgNAImeawFeaPV+Bgwc1u52DZwoBg/vrj8UX57jSKp2xwiXONxWm/y2eaFP8+1g9qu+rhNoPlKbdsgHkca8osVfCZrpprRukeeFZVITqLeYDdJoVaKftyrB3bbFiI5CYXIYdMNS0Piox5zHiL7EnUsrzVvJdIVA+4G+tmFYDdKU6vmzKsC44NWPiDWsCgOPj9Z08q1nbM0lztwnfvJnsMGGt0uYSNA7KmBvWbzjOdfqJ0yS/K1dslpy0cC56lRfbK46WgHUxUIiNTWvSNq2Xaswt0Twdn20E0JnXd18d7UJ1m+5XA8s9kLs+otiiJzJd8xFaclX9KU3s3gMHrhvJHd8hDblQrMIlXDOqdJxLJz/tu80=
   matrix:
-    - TEST_SUITE='test:travis'
-    - TEST_SUITE='cssTest set1'
-    - TEST_SUITE='cssTest set2'
-    - TEST_SUITE='cssTest set3'
-    - TEST_SUITE='cssTest set4'
-
-sudo: required
-dist: trusty
-group: edge
-
-services:
-  - docker
-
+  - TEST_SUITE='test:travis'
+  # - TEST_SUITE='cssTest set1'
+  # - TEST_SUITE='cssTest set2'
+  # - TEST_SUITE='cssTest set3'
+  # - TEST_SUITE='cssTest set4'
+sudo: false
+# dist: trusty
+# group: edge
+# services:
+# - docker
 addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-      - google-chrome
-    packages:
-      - g++-4.8
-      - google-chrome-stable
-  artifacts:
-    paths:
-      - $TRAVIS_BUILD_DIR/gemini-report/
+  # apt:
+  #   sources:
+  #   - ubuntu-toolchain-r-test
+  #   - google-chrome
+  #   packages:
+  #   - g++-4.8
+  #   - google-chrome-stable
+  # artifacts:
+  #   paths:
+  #   - "$TRAVIS_BUILD_DIR/reports/"
+  # sauce_connect: 
+  #   username: claritydesignsystem
+  #   direct_domains: travis-ci.org
+  # jwt:
+  #  secure: "tIHq1+gn0WdYeo2jjqtPrMfw9bucJxUGenpQgAAZwmUR9VKQOmubEGApg97Ebrjp+JSzCbOJ7DFMgyYBRGHGgJo5/LkLEIjGupo4wT/Q/uhNLxG2gWIT7KG2rpBePwTVMOgkvnYQnfGWqsNhopkQuUqL5agoMfAQcjfGZz9NUYEuCX36sMzI+ymQGofzu7Qz/tqBfwD8QGUBah95ANJRh0ieh+nci2Q+GWNCe6PfwJzymm3gmbi5Z3ktYZ1vC1qQ/fbrFwbDr4IZQdn62q0G9cx0vZszkoYhfOpFonSaT349651Z3yu4xPqg0P+PulUYOyycf594jR1iZsUPm36fwjUNN0sD0MGw45hs2+iV84Aomb8T4rAXDlZS8LJ03vg8zR9/C1V4xbaBGQV8EmrAPliNVoR3sIwVgqwFx2N+4HsBtApw0ms6ZrroyBMx12G8kHo7VAANfmALnq+zst0zdM1QXlzpKO1U30CcBcEKbc5WT11qTUkrRXoILcm3lM0MMRYLC3jIYM+gmoxW36HZQ6lZMe5wVwJV8J433kUrR8nMmwOrJPeUmmpVdsaFay/Fk7O40+/EdBGAzLpJonHRaJSYTrJ4BJkCuk8OVHQOszOrUORV0W3/CFYvBGoZhTA4SLcBN2F5X1KQvCnUNfEOC6Sr8ki8V1KJKhoPOh9oiwg="
 cache:
-  apt: true
+  # apt: true
   directories:
-    - node_modules
-
-before_install:
-
-before_script:
-  - npm install -g gemini@5.2.0
-  - npm install -g html-reporter@2.0.1
-
+  - node_modules
+# before_install: 
+# before_script:
+# - npm install -g gemini@5.2.0
+# - npm install -g html-reporter@2.0.1
 script:
-  - npm run $TEST_SUITE # run unit test and css regression test sets in parallel
+- npm run $TEST_SUITE
